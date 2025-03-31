@@ -17,6 +17,13 @@ make env-create
 # run
 
 ```shell
+# run src/generate_example.py
+make run
+```
+
+or
+
+```shell
 # run Bash with-in conda environment
 make env-shell
 

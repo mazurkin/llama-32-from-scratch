@@ -18,7 +18,12 @@ export PYTHONUNBUFFERED        = 1
 # notebook
 # -----------------------------------------------------------------------------
 
-.DEFAULT_GOAL = env-shell
+.DEFAULT_GOAL = run
+
+.PHONY: run
+run:
+	@conda run --no-capture-output --live-stream --name "$(CONDA_ENV_NAME)" --cwd "$(ROOT)/src" \
+		python generate_example.py
 
 # -----------------------------------------------------------------------------
 # conda environment
@@ -34,15 +39,18 @@ env-init:
 
 .PHONY: env-create
 env-create:
-	@conda run --no-capture-output --live-stream --name "$(CONDA_ENV_NAME)" poetry install --no-root --no-directory
+	@conda run --no-capture-output --live-stream --name "$(CONDA_ENV_NAME)" \
+		poetry install --no-root --no-directory
 
 .PHONY: env-update
 env-update:
-	@conda run --no-capture-output --live-stream --name "$(CONDA_ENV_NAME)" poetry update
+	@conda run --no-capture-output --live-stream --name "$(CONDA_ENV_NAME)" \
+		poetry update
 
 .PHONY: env-list
 env-list:
-	@conda run --no-capture-output --live-stream --name "$(CONDA_ENV_NAME)" poetry show
+	@conda run --no-capture-output --live-stream --name "$(CONDA_ENV_NAME)" \
+		poetry show
 
 .PHONY: env-remove
 env-remove:
@@ -50,11 +58,13 @@ env-remove:
 
 .PHONY: env-shell
 env-shell:
-	@conda run --no-capture-output --live-stream --name "$(CONDA_ENV_NAME)" --cwd "$(ROOT)/src" bash
+	@conda run --no-capture-output --live-stream --name "$(CONDA_ENV_NAME)" --cwd "$(ROOT)/src" \
+		bash
 
 .PHONY: env-info
 env-info:
-	@conda run --no-capture-output --live-stream --name "$(CONDA_ENV_NAME)" conda info
+	@conda run --no-capture-output --live-stream --name "$(CONDA_ENV_NAME)" \
+		conda info
 
 # -----------------------------------------------------------------------------
 # linters
