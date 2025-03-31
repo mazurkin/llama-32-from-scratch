@@ -1,4 +1,4 @@
-# telegpt makefile
+# llama-32-from-scratch makefile
 #
 # https://swcarpentry.github.io/make-novice/reference.html
 # https://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/
