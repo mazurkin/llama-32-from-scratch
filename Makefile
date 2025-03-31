@@ -11,6 +11,9 @@ ROOT  := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
 CONDA_ENV_NAME = llama-32-from-scratch
 
+export PYTHONDONTWRITEBYTECODE = 1
+export PYTHONUNBUFFERED        = 1
+
 # -----------------------------------------------------------------------------
 # notebook
 # -----------------------------------------------------------------------------
