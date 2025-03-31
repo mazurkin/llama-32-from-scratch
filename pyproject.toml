@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "llama-32-from-scratch"
+version = "0.1.0"
+description = "llama-32-from-scratch project"
+authors = ["Nick Mazurkin <mazurkin@gmail.com>"]
+readme = "README.md"
+
+[[tool.poetry.source]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl/cu124"
+priority = "explicit"
+
+[tool.poetry.dependencies]
+python = "3.10.16"
+tiktoken = "0.9.0"
+blobfile = "3.0.0"
+
+[tool.poetry.group.pytorch.dependencies]
+torch = { version = "2.6.0+cu124", source="pytorch"}
+torchaudio = { version = "2.6.0+cu124", source="pytorch"}
+torchvision = { version = "0.21.0+cu124", source="pytorch"}
+torchdata = { version = "0.7.1", source="pytorch"}
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "7.1.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
